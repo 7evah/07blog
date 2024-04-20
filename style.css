@@ -1,0 +1,548 @@
+.header {
+  background-color: darkolivegreen;
+  padding-bottom: 130px;
+  color: black;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+}
+
+ h1{
+  text-align: center;
+  color: #fefefe;
+  
+}
+h5{
+  text-align: center;
+  color: #fefefe;
+}
+.header h1,
+.header h4 {
+  text-align: center;
+  margin: 0; /* Remove default margin */
+  margin-top: auto;
+}
+body{
+  
+  margin: 0;
+}
+
+
+
+.footer{
+  background-color: darkolivegreen;
+  padding: 0%;
+  color: black;
+  margin-top: 10%;
+  
+}
+
+.container {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Distribute items evenly */
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Align items vertically */
+  flex-grow: 1; /* Allow the nav to grow to take available space */
+}
+
+.nav img {
+  align-self: flex-start; /* Align the image to the flex-start */
+}
+
+.search-bar {
+  flex-grow: 0.65; /* Allow the search bar to grow to take available space */
+  text-align: center; /* Center the content inside the search bar */
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  margin: 50;
+  padding: 0;
+  justify-content: center; /* Align list items to the flex-end */
+}
+
+
+
+#posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  
+}
+
+#searchResults  {
+  
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important; 
+  gap: 10px !important;
+  
+}
+.post2 {
+  justify-content: flex-start;
+  width: fit-content;
+  height: auto;
+}
+
+.post {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  flex: 1 0 calc(33.33% - 20px); /* Adjust to display 3 posts per row */
+  max-width: calc(33.33% - 20px); /* Adjust to display 3 posts per row */
+  box-sizing: border-box;
+  margin-bottom: 40px; /* Add margin between posts */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Add position relative */
+  overflow: hidden; /* Hide overflow content */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow from the bottom */
+}
+/* Responsive styles for small screens (e.g., phones) */
+@media screen and (max-width: 767px) {
+  .post {
+    flex: 1 0 calc(100% - 40px); /* Adjust to display 1 post per row */
+    max-width: calc(100% - 40px); /* Adjust to display 1 post per row */
+  }
+}
+
+
+
+.post1 {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  flex: 1 0 calc(33.33% - 20px); /* Adjust to display 3 posts per row */
+  max-width: calc(33.33% - 20px); /* Adjust to display 3 posts per row */
+  box-sizing: border-box;
+  margin-bottom: 40px; /* Add margin between posts */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Add position relative */
+  overflow: hidden; /* Hide overflow content */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow from the bottom */
+}
+@media screen and (max-width: 767px) {
+  .post1 {
+    flex: 1 0 calc(100% - 40px); /* Adjust to display 1 post per row */
+    max-width: calc(100% - 40px); /* Adjust to display 1 post per row */
+  }
+}
+
+
+.post h2 {
+  margin: 0;
+}
+.post1 h2 {
+  margin: 0;
+}
+
+.post button {
+  margin-top: 20px;
+  cursor: pointer;
+  justify-content: flex-end;
+  display: flex;
+}
+.post1 button {
+  margin-top: 20px;
+  cursor: pointer;
+  justify-content: flex-end;
+  display: flex;
+}
+
+.post img {
+  
+  height: 50% ; /* Maintain aspect ratio */
+  object-fit:cover;
+  border-top-left-radius: 5px; /* Adjust border radius */
+  border-top-right-radius: 5px; /* Adjust border radius */
+  width: 100%;
+  background-size: cover; /* Cover the entire container with the background image */
+  background-position: center; /* Center the background image */
+  
+  
+}
+.post1 img {
+  height: 50% ; /* Maintain aspect ratio */
+  object-fit:cover;
+  border-top-left-radius: 5px; /* Adjust border radius */
+  border-top-right-radius: 5px; /* Adjust border radius */
+  width: 100%;
+  background-size: cover; /* Cover the entire container with the background image */
+  background-position: center; /* Center the background image */
+}
+
+/* CSS for the modal popup */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Enable scrolling if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Style the modal content */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 70%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the input for content */
+#editContent {
+  width: 100%; /* Take up the full width */
+  height: 200px; /* Set the height to 200 pixels */
+  resize: none; /* Disable resizing */
+}
+
+/* Style the input fields */
+.input-field {
+  margin-bottom: 15px; /* Add space below each input */
+}
+/* Style the labels */
+.label {
+  margin-bottom: 5px; /* Add space below each label */
+}
+
+#newContent {
+  width: 100%; /* Take up the full width */
+  height: 200px; /* Set the height to 200 pixels */
+  resize: none; /* Disable resizing */
+}
+
+/* Style the close button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.nav ul li:hover,#searchButton:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: darkolivegreen;
+  padding: 10px 0;
+}
+
+.nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav ul li {
+  margin-left: 5px;
+  
+}
+
+.nav ul li button {
+  background-color: darkolivegreen;
+  text-decoration: none;
+  font-size: 15px;
+  padding: 10px 20px;
+  border: none;
+  color: white;
+}
+
+.search-bar {
+  margin-left: auto; /* Push the search bar to the right */
+  margin-right: 20px; /* Adjust the margin for the search bar */
+}
+
+#searchInput {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.search-bar button {
+  background-color: darkolivegreen; /* Dark olive green */
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.search-bar button:hover {
+  background-color: #4b5320; /* Slightly darker shade of olive green */
+  transform: scale(1.05);
+}
+
+.search-bar button:active {
+  transform: scale(0.95);
+}
+
+.fa {
+  font-size: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.fa:hover {
+  color: darkblue;}
+
+
+
+  #navbaro {
+    background-color: darkolivegreen;
+    position: fixed;
+    margin-bottom: 50px;
+    top: -60px ;
+    width: 100%;
+    display: block;
+    transition: top;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; /* Fix the navigation bar */
+    top: 0; /* Position it at the top */
+    width: 100%; /* Take up the full width */
+    background-color: darkolivegreen;
+    padding: 10px 0;
+    z-index: 1000; /* Ensure it's above other content */
+  }
+  
+ 
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Header styles */
+.headero {
+  background-color: darkolivegreen;
+  color: #fff;
+  padding: 20px 0;
+}
+
+/* Container styles */
+.containero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Post details styles */
+#post-details {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.post2 {
+  margin-bottom: 20px;
+}
+.navo img{
+  height: 400px;
+  object-fit: cover;
+  object-position: 60% 40%; /* Adjust as needed */
+
+}
+.post2 h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.post2 p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Comment form styles */
+#commentForm {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+#commentForm input[type="text"],
+#commentForm button {
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+#commentForm button {
+  background-color: darkolivegreen;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+#commentForm button:hover {
+  background-color: #555;
+}
+
+/* Footer styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* Font Awesome styles */
+.fa {
+  font-size: 24px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.fa:hover {
+  color: #555;
+}
+
+
+  
+/* Comment list styles */
+.post2 ul {
+  list-style-type: none; /* Remove default list style */
+  padding: 0; /* Remove default padding */
+}
+
+/* Individual comment styles */
+.post2 ul li {
+  margin-bottom: 20px; /* Add spacing between comments */
+}
+
+/* User name styles */
+.post2 ul li .user {
+  font-weight: bold; /* Make user name bold */
+  color: #333; /* Set user name color */
+}
+
+/* Comment text styles */
+.post2 ul li .comment {
+  color: #666; /* Set comment text color */
+  font-size: 16px; /* Set font size for comments */
+  line-height: 1.4; /* Set line height for better readability */
+}
+
+
+
+
+ 
+  
+.menu {
+  display: none; /* Hide the dropdown menu by default */
+}
+  /* Responsive styles for small screens (e.g., phones) */
+@media screen and (max-width: 767px) {
+  .nav {
+    flex-direction: column; /* Stack elements vertically on small screens */
+  }
+
+  #navbaro{
+    display: none;
+  }
+  .nav img {
+    align-self: flex-start; /* Align the image to the flex-start */
+    height: 50px;
+    margin-bottom: -40px;
+  }
+  .nav ul{
+    margin-bottom: 100px;
+  }
+  
+  .menu {
+    display: block; /* Display the dropdown menu on small screens */
+    margin-top: 10px; /* Add spacing between logo and dropdown */
+  }
+  
+  #options {
+    padding: 8px;
+    margin-right: 5px;
+  }
+  
+  #submitOption {
+    padding: 8px 15px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+}
+ 
+  
+ 
